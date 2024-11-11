@@ -1,0 +1,56 @@
+﻿@model Usuario
+
+@{
+    ViewData["Title"] = "Cadastrar Usuários";
+}
+
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success text-dark" role="alert">
+        @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger text-dark" role="alert">
+        @TempData["MensagemErro"]
+    </div>
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+
+<div class="container">
+    <h1>Registro de Usuários</h1>
+
+    <form asp-action="Cadastrar" asp-controller="Home" method="post">
+        
+        <div class="mt-3">
+            <label class="form-label">Nome:</label>
+            <input class="form-control" type="text" asp-for="Nome" />
+        </div>
+        
+        <div class="mt-3">
+            <label class="form-label">Sobrenome:</label>
+            <input class="form-control" type="text" asp-for="Sobrenome" />
+        </div>
+        
+        <div class="mt-3">
+            <label class="form-label">Email:</label>
+            <input class="form-control" type="email" asp-for="Email" />
+        </div>
+    
+        <div class="mt-3">
+            <label class="form-label">Cargo:</label>
+            <input class="form-control" type="text" asp-for="Cargo" />
+        </div>
+    
+        <div class="d-flex mt-5 g-2">
+            <button type="submit" class="btn btn-success w-50 mx-2">Cadastrar</button>
+            <a class="btn btn-info w-50" asp-action="Index">Voltar</a>
+        </div>
+
+    </form>
+</div>
